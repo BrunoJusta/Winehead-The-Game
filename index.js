@@ -1,7 +1,7 @@
 // THREEJS RELATED VARIABLES
 let scene, renderer, camera;
-let speed = 0.08
-let speed2 = 0.08
+let speed = 0.06
+let speed2 = 0.06
 let armMove = 0.05
 
 // 3D Models
@@ -40,8 +40,6 @@ function handleWindowResize() {
 function createLights() {
     hemisphereLight = new THREE.HemisphereLight(0xffffff, .8);
     scene.add(hemisphereLight);
-    AmbientLight = new THREE.AmbientLight(0xffffff, .2);
-    scene.add(AmbientLight)
 }
 
 function createLamps() {
@@ -65,7 +63,7 @@ function createLamps() {
         spotLight.castShadow = true;
         spotLight.angle = 0.3
         spotLight.target = ground
-        spotLight.intensity = 0.4
+        spotLight.intensity = 0.8
         spotLight.penumbra = 0.5
         spotLight.shadow.camera.left = -50;
         spotLight.shadow.camera.right = 50;
@@ -413,7 +411,7 @@ function createground() {
 
 function animate() {
     // Rotation Animate
-    ground.rotation.z += 0.009;
+    ground.rotation.z += 0.006;
 
     // Arm Rotation
     arm.rotation.z += speed
