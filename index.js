@@ -1,11 +1,10 @@
-// THREEJS RELATED VARIABLES
+// ------------------------------------ Variables ------------------------------- 
+// ------------------------------------------------------------------------------
 let scene, renderer, camera;
 let speed = 0.06
 let speed2 = 0.06
 let armMove = 0.05
-
-// 3D Models
-let ground, bottleBase, arm, disk, obstacle, obstacles, leg, leg2, lamps;
+let ground, bottleBase, wall, obstacle, obstacles, lamps;
 let vel = 0;
 
 window.onload = function init() {
@@ -309,7 +308,7 @@ function createground() {
 
     //Wall
     var geometry2 = new THREE.CircleBufferGeometry(200, 80);
-    var geometryDisk2 = new THREE.CircleBufferGeometry(300, 80);
+    var geometrywall2 = new THREE.CircleBufferGeometry(300, 80);
     let starMap = new THREE.TextureLoader().load('images/stars.png');
     let starMaterial = new THREE.MeshPhongMaterial({
         map: starMap,
@@ -321,11 +320,11 @@ function createground() {
         opacity: 1,
         side: THREE.DoubleSide
     });
-    disk = new THREE.Mesh(geometry2, material2);
-    let disk2 = new THREE.Mesh(geometryDisk2, starMaterial);
-    disk.position.set(0, 0, -20)
-    disk2.position.set(0, 0, -21)
-    ground.add(disk, disk2);
+    wall = new THREE.Mesh(geometry2, material2);
+    let wall2 = new THREE.Mesh(geometrywall2, starMaterial);
+    wall.position.set(0, 0, -20)
+    wall2.position.set(0, 0, -21)
+    ground.add(wall, wall2);
 
 
     //teto
@@ -370,7 +369,7 @@ function createground() {
         window.position.y = Math.sin(a) * 150;
         window.position.x = Math.cos(a) * 150;
         window.rotation.z = a + Math.PI / 2;
-        disk.add(window);
+        wall.add(window);
     }
 
     //Paintings
@@ -404,7 +403,7 @@ function createground() {
         painting.position.y = Math.sin(a) * 150;
         painting.position.x = Math.cos(a) * 150;
         painting.rotation.z = a + Math.PI / 2;
-        disk.add(painting);
+        wall.add(painting);
     }
     scene.add(windows);
 }

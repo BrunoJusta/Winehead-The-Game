@@ -758,10 +758,6 @@ function clawsAnimation() {
     }
 
     for (let i = 6; i < 12; i++) {
-        // obstacles.children[i].children[2].children[0].rotation.y += clawSpeed
-        // obstacles.children[i].children[2].children[1].rotation.y += clawSpeed
-        // obstacles.children[i].children[2].children[2].rotation.y += clawSpeed
-        // obstacles.children[i].children[2].children[3].rotation.y += clawSpeed
 
         if (obstacles.children[i].children[2].children[0].rotation.x >= 0.1) {
             obstacles.children[i].children[2].children[0].rotation.x += -0.4
@@ -802,7 +798,7 @@ function count() {
         obstacles.rotation.z = 0
         lapTXT += 1
         if (lapTXT % 2 == 0) {
-            if (rotationSpeed != 0.013) {
+            if (rotationSpeed <= 0.013) {
                 speedTXT += 1
                 rotationSpeed = rotationSpeed + 0.002
             }
